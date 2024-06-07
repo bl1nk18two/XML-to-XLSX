@@ -26,7 +26,8 @@ def tela():
 def pegar_infos(arquivo, valores, path):
     """ print(f"Pegou as informações {arquivo}") """
     with open(f"{path}/{arquivo}", "rb") as arquivo_xml:
-        dic_arquivo = xmltodict.parse(arquivo_xml)
+        conteudo_xml = arquivo_xml.read().decode("utf-8")
+        dic_arquivo = xmltodict.parse(conteudo_xml)
         """ try: """
         if 'nfeProc' in dic_arquivo:
             infos_nf = dic_arquivo["nfeProc"]["NFe"]["infNFe"]
